@@ -6,6 +6,7 @@ Created on 24/9/2014
 '''
 import uuid
 import hashlib
+import re
  
 class clsAccessControl(object):
     def __init__(self):
@@ -15,6 +16,10 @@ class clsAccessControl(object):
         # Verificar la longitud del password
         oHash=""
         olength_password=self.length_password(value)
+        
+        if re.match('([A-Z]*[a-z]*[0-9]*[@.#$\+\*]*)+||',value):
+             print("Bieeeeeeeen")
+
         if olength_password>=8 and olength_password<=16:
             # uuid es usado para generar numeros random
             salt = uuid.uuid4().hex
@@ -39,16 +44,16 @@ class clsAccessControl(object):
         # uuid es usado para generar numeros random
         return len(user_password)
 
-#Para encriptar un passwork  
-oPassword = input('Por favor ingrese su password: ')
-#Se crea un objeto tipo clsAccessControl
-oAccessControl=clsAccessControl()
-oPassworkEncript = oAccessControl.encript(oPassword)
-print('El Password almacenado en la memoria es: ' + oPassworkEncript)
-if oPassworkEncript:
-    #Para validar el passwork introducido
-    oCheckPassword = input('Para verificar su password, ingreselo nuevamente: ')
-    if oAccessControl.check_password(oPassworkEncript, oCheckPassword):
-        print('Ha introducido el password correcto')
-    else:
-        print('El password es diferente')
+# #Para encriptar un passwork  
+# oPassword = input('Por favor ingrese su password: ')
+# # #Se crea un objeto tipo clsAccessControl
+# oAccessControl=clsAccessControl()
+# oPassworkEncript = oAccessControl.encript(oPassword)
+# print('El Password almacenado en la memoria es: ' + oPassworkEncript)
+# if oPassworkEncript:
+#     #Para validar el passwork introducido
+#     oCheckPassword = input('Para verificar su password, ingreselo nuevamente: ')
+#     if oAccessControl.check_password(oPassworkEncript, oCheckPassword):
+#         print('Ha introducido el password correcto')
+#     else:
+#         print('El password es diferente')
