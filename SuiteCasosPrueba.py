@@ -44,6 +44,6 @@ class TestEncript(unittest.TestCase):
         object = clsAccessControl()
         string = "Estoes1prueb@.Xy"
         result = object.encript(string) 
-        self.assertTrue(result,"Clave Invalida")
+        self.assertTrue(result,"Clave Invalida")        
         
         
