@@ -11,7 +11,8 @@ from mdlaccesscontrol import clsAccessControl
 
 class Testcheck_password(unittest.TestCase):
  
-    #Caso Frontera
+    #Casos Fronteras
+    
     def testHashValidoCorrespodeAClaveCorrectaLong8(self):
         object = clsAccessControl()
         password = "1XZABC@W"
