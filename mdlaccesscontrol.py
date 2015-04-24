@@ -41,14 +41,22 @@ class clsAccessControl(object):
         # uuid es usado para generar numeros random
         return len(user_password)
 
+<<<<<<< HEAD
 #Para encriptar un passwork  
 #oPassword = input('Por favor ingrese su password: ')
 #Se crea un objeto tipo clsAccessControl
 #oAccessControl=clsAccessControl()
 #oPassworkEncript = oAccessControl.encript(oPassword)
+=======
+# #Para encriptar un passwork  
+# oPassword = input('Por favor ingrese su password: ')
+#  #Se crea un objeto tipo clsAccessControl
+# oAccessControl=clsAccessControl()
+# oPassworkEncript = oAccessControl.encript(oPassword)
+>>>>>>> refs/heads/master
 # print('El Password almacenado en la memoria es: ' + oPassworkEncript)
 # if oPassworkEncript:
-#     #Para validar el passwork introducido
+#      #Para validar el passwork introducido
 #     oCheckPassword = input('Para verificar su password, ingreselo nuevamente: ')
 #     if oAccessControl.check_password(oPassworkEncript, oCheckPassword):
 #         print('Ha introducido el password correcto')
