@@ -150,9 +150,9 @@ class TestEncript(unittest.TestCase):
         self.assertEqual(resultado,"")
         
     #Caso 19: Clave de longitud 8 que contiene solo letras mayusculas.        
-    def testClaveLargo8ConSoloLetras(self):
+    def testClaveLargo8ConSoloLetrasMayusculas(self):
         objeto = clsAccessControl()
-        cadena = "abcdefgh"
+        cadena = "ABCDEFGH"
         resultado = objeto.encript(cadena)
         self.assertEqual(resultado,"")
 
@@ -162,7 +162,11 @@ class TestEncript(unittest.TestCase):
         cadena = "#$.*+@++"
         resultado = objeto.encript(cadena)
         self.assertEqual(resultado,"")
-
-
-
-
+        
+    #Caso 21: Clave inválida con caracteres diferentes a los solicitados 
+    def testClaveInvalidaCaractereSIncorrectos(self):
+        objeto = clsAccessControl()
+        cadena = "Gft%u!i56*"
+        resultado = objeto.encript(cadena)
+        self.assertEqual(resultado,"")
+    
