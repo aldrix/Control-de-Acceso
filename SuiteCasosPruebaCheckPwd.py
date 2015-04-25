@@ -85,7 +85,7 @@ class Testcheck_password(unittest.TestCase):
         result = object.check_password(encriptar,password)
         self.assertFalse(result,"Clave Valida")
         
-    #Caso 6: Clave de longitud 7 con su hash correspondiente
+    #Caso 8: Clave de longitud 7 con su hash correspondiente
     def testHashValidoClaveLong7(self):
         object = clsAccessControl()
         password = "xYz2#15" 
@@ -94,7 +94,7 @@ class Testcheck_password(unittest.TestCase):
         result = object.check_password(encriptar,password)
         self.assertFalse(result,"Clave Valida")
      
-     #Caso 7: Clave de longitud 17 con su hash correspondiente
+     #Caso 9: Clave de longitud 17 con su hash correspondiente
     def testHashValidoClaveLong17(self):
         object = clsAccessControl()
         password = "xYz2#15gsgshshsah" 
@@ -105,7 +105,7 @@ class Testcheck_password(unittest.TestCase):
         
     #Caso Malicioso
     
-    #Caso 8: Clave sin caracteres de ningún tipo, con hash de una clave válida
+    #Caso 10: Clave sin caracteres de ningún tipo, con hash de una clave válida
     def testHashValidoClaveVacia(self):
         object = clsAccessControl()
         password = "" 
@@ -114,7 +114,7 @@ class Testcheck_password(unittest.TestCase):
         result = object.check_password(encriptar,password)
         self.assertFalse(result,"Clave Valida")
         
-    #Caso 9: Clave de string vacio, con hash de una clave válida
+    #Caso 11: Clave de string vacio, con hash de una clave válida
     def testHashValidoClaveConSoloEspacios(self):
         object = clsAccessControl()
         password = "        " 
