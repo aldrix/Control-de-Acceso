@@ -11,7 +11,10 @@ from mdlaccesscontrol import clsAccessControl
 
 class Testcheck_password(unittest.TestCase):
  
-    #Caso Frontera
+    #Casos Fronteras
+    
+    #Caso 1: La clave de encript y la nueva clave a verificar coinciden.
+    #        (Ambas claves son de largo 8)
     def testHashValidoCorrespodeAClaveCorrectaLong8(self):
         object = clsAccessControl()
         password = "1XZABC@W"
@@ -19,7 +22,8 @@ class Testcheck_password(unittest.TestCase):
         result = object.check_password(encriptar,password)
         self.assertTrue(result,"Clave Invalida")
         
-     #Caso Frontera
+    #Caso 2: La clave de encript y la nueva clave a verificar coinciden.
+    #        (Ambas claves son de largo 16)
     def testHashValidoCorrespodeAClaveCorrectaLong16(self):
         object = clsAccessControl()
         password = "1abcdXZABC@W123@"
@@ -27,7 +31,8 @@ class Testcheck_password(unittest.TestCase):
         result = object.check_password(encriptar,password)
         self.assertTrue(result,"Clave Invalida")
         
-    #Caso Frontera
+    #Caso 3: La clave de encript y la nueva clave (invalida) a verificar no coinciden.
+    #        (Ambas claves son de largo 8)
     def testHashValidoClaveInvalida(self):
         object = clsAccessControl()
         password = "abcd@123" 
@@ -36,15 +41,49 @@ class Testcheck_password(unittest.TestCase):
         result = object.check_password(encriptar,password)
         self.assertFalse(result,"Clave Valida")
         
-    #Caso Normal
-    def testHashValidoCorrespondeAClaveCorrectaLong10(self):
+    #Caso 4: La clave de encript y la nueva clave (invalida) a verificar no coinciden.
+    #        (Ambas claves son de largo 16)
+    def testHashValidoClaveInvalida(self):
         object = clsAccessControl()
-        password = "fggA#123.s"
+        password = "afxx@123987pa.+*" 
+        passwordValid = "AB*.+1254aCD@123"
+        encriptar = object.encript(passwordValid)
+        result = object.check_password(encriptar,password)
+        self.assertFalse(result,"Clave Valida")
+        
+        
+    #Casos Normales
+    
+    #Caso 5: La clave de encript y la nueva clave a verificar coinciden.
+    #        (Ambas claves son de largo 15)
+    def testHashValidoCorrespondeAClaveCorrectaLong15(self):
+        object = clsAccessControl()
+        password = "fggAaksh#123.s1"
+        encriptar = object.encript(password)
+        result = object.check_password(encriptar,password)
+        self.assertTrue(result,"Clave Invalida")
+        
+    #Caso 6: La clave de encript y la nueva clave a verificar coinciden.
+    #        (Ambas claves son de largo 9)
+    def testHashValidoCorrespondeAClaveCorrectaLong9(self):
+        object = clsAccessControl()
+        password = "fgAh#1.s1"
         encriptar = object.encript(password)
         result = object.check_password(encriptar,password)
         self.assertTrue(result,"Clave Invalida")
 
-    #Caso Esquina
+    #Casos Esquina
+    
+    #Caso 7:
+    def testHashValidoClaveInvalida(self):
+        object = clsAccessControl()
+        password = "afxx@123987pa.+*" 
+        passwordValid = "AB*.+1254aCD@123"
+        encriptar = object.encript(passwordValid)
+        result = object.check_password(encriptar,password)
+        self.assertFalse(result,"Clave Valida") 
+    
+    
     def testHashyClaveDiferentePorUnaLetra(self):
         object = clsAccessControl()
         password = "1ZA3BC@Ws"
