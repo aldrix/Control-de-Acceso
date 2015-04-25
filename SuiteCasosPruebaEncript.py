@@ -169,9 +169,4 @@ class TestEncript(unittest.TestCase):
         cadena = "Gft%u!i56*"
         resultado = objeto.encript(cadena)
         self.assertEqual(resultado,"")
-        
-        
-
-
-
-
+    
