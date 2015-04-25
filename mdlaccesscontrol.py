@@ -43,14 +43,14 @@ class clsAccessControl(object):
                            '(([0-9a-zA-Z]|[@.#$+*])*\d([0-9a-zA-Z]|[@.#$+*])*[@.#$+*]([0-9a-zA-Z]|[@.#$+*])*[A-Z])|'+
                            '(([0-9a-zA-Z]|[@.#$+*])*\d([0-9a-zA-Z]|[@.#$+*])*[A-Z]([0-9a-zA-Z]|[@.#$+*])*[@.#$+*])|'+
                            '(([0-9a-zA-Z]|[@.#$+*])*[@.#$+*]([0-9a-zA-Z]|[@.#$+*])*\d([0-9a-zA-Z]|[@.#$+*])*[A-Z])|'+
-                           '(([0-9a-zA-Z]|[@.#$+*])*[@.#$+*]([0-9a-zA-Z]|[@.#$+*])*[A-Z]([0-9a-zA-Z]|[@.#$+*])*\d)',value) 
+                           '(([0-9a-zA-Z]|[@.#$+*])*[@.#$+*]([0-9a-zA-Z]|[@.#$+*])*[A-Z]([0-9a-zA-Z]|[@.#$+*])*\d)',oCheckPassword) 
         
         if verificar and olength_password>=8 and olength_password<=16: 
             
             oPassworkEncript, salt = oPassworkEncript.split(':')
             return oPassworkEncript == hashlib.sha256(salt.encode() + oCheckPassword.encode()).hexdigest()
         else:
-            print('El Password no posee la cantidad de caracteres requerida o los caracteres requeridos Ej: @.#$+*')
+            print('El Password no posee el largo necesario o los caracteres especiales requeridos Ej: @.#$+*')
             return False
     
     def length_password(self, user_password):
